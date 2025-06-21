@@ -1,5 +1,7 @@
 import { Router, Request, Response } from "express";
-import pool from "../config/database";
+
+import * as operation from "../services/taskServices";
+import { create } from "../controller/taskController";
 
 const router = Router();
 
@@ -11,8 +13,7 @@ router.get("/", async (req: Request, res: Response) => {
 });
 
 router.get("/db", async (req: Request, res: Response) => {
-  const result = await pool.query("SELECT NOW()");
-  res.json(result.rows);
+  res.json(operation.getAllTasks);
 });
 
 // rotas pra ver todas as tasks
@@ -21,9 +22,7 @@ router.get("/tasks", (req: Request, res: Response) => {
 });
 
 // rota para ver  tasks nao concluidas
-router.get("/todo", (req: Request, res: Response) => {
-  res.send("Hello, World!");
-});
+router.post("/create", create);
 
 // rota para ver tasks concluidas
 router.get("/completed", (req: Request, res: Response) => {
