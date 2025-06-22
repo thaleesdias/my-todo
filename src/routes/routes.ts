@@ -1,7 +1,10 @@
 import { Router, Request, Response } from "express";
 
-import * as operation from "../services/taskServices";
-import { create } from "../controller/taskController";
+import {
+  completedTasks,
+  create,
+  getAllTasks,
+} from "../controller/taskController";
 
 const router = Router();
 
@@ -12,22 +15,14 @@ router.get("/", async (req: Request, res: Response) => {
   });
 });
 
-router.get("/db", async (req: Request, res: Response) => {
-  res.json(operation.getAllTasks);
-});
-
 // rotas pra ver todas as tasks
-router.get("/tasks", (req: Request, res: Response) => {
-  res.send("Hello, World!");
-});
+router.get("/tasks", getAllTasks);
 
 // rota para ver  tasks nao concluidas
 router.post("/create", create);
 
 // rota para ver tasks concluidas
-router.get("/completed", (req: Request, res: Response) => {
-  res.send("World, Hello!");
-});
+router.get("/completed", completedTasks);
 
 router.get("/salve/:msg", (req: Request, res: Response) => {
   const msg: string = req.params.msg;
