@@ -15,3 +15,26 @@ export const create = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const getAllTasks = async (req: Request, res: Response) => {
+  try {
+    const result = await taskService.getAllTasks();
+
+    res.status(200).json({ result });
+  } catch (error) {
+    res.status(500).json({
+      message: "nao foi possivel exibir as Tasks",
+    });
+  }
+};
+
+export const completedTasks = async (req: Request, res: Response) => {
+  try {
+    const result = await taskService.showCompleted();
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({
+      message: "nao foi possivel mostrar as tasks concluidas",
+    });
+  }
+};
