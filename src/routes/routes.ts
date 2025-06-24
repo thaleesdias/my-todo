@@ -1,32 +1,28 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 
 import {
   completedTasks,
   create,
   getAllTasks,
+  updateTaskToIncompleted,
+  updateTaskToCompleted,
 } from "../controller/taskController";
 
 const router = Router();
 
-router.get("/", async (req: Request, res: Response) => {
-  res.json({
-    message: "Hello, World!",
-    status: "ok",
-  });
-});
-
 // rotas pra ver todas as tasks
 router.get("/tasks", getAllTasks);
 
-// rota para ver  tasks nao concluidas
+// rota para criar task
 router.post("/create", create);
 
 // rota para ver tasks concluidas
 router.get("/completed", completedTasks);
 
-router.get("/salve/:msg", (req: Request, res: Response) => {
-  const msg: string = req.params.msg;
-  res.send(`<h1>  ${msg}  </h1>`);
-});
+//rota para atualizar o completed
+router.patch("/task/:id/complete", updateTaskToCompleted);
+
+//rota que marca como incompleted
+router.patch("/task/:id/incomplete", updateTaskToIncompleted);
 
 export default router;
