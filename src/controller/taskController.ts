@@ -38,3 +38,25 @@ export const completedTasks = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const updateTaskToCompleted = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+
+    const result = await taskService.setTaskAsCompleted(id);
+    res.status(200).json({ msg: "updated task " });
+  } catch (error) {
+    res.status(500).json({ msg: "erro para dar update na task" });
+  }
+};
+
+export const updateTaskToIncompleted = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+
+    const result = await taskService.setTaskAsIncompleted(id);
+    res.status(200).json({ msg: "updated task " });
+  } catch (error) {
+    res.status(500).json({ msg: "erro para dar update na task" });
+  }
+};
