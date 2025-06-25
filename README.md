@@ -45,28 +45,30 @@ PGPASSWORD=sua_senha
 
 PGDATABASE=seu_banco
 
-PORT=porta_para_rodar_app
----
+## PORT=porta_para_rodar_app
 
 # Rotas
 
 rotas pra ver todas as tasks
-"/tasks"
+"api/tasks"
 
 rota para criar task
-"/create"
+"api/create"
 
 rota para ver tasks concluidas
-"/completed"
+"api/completed"
+
+rota para mostar tasks incompleted
+"api/incompleted"
 
 rota para atualizar o completed
-"/task/:id/complete"
+"api/task/:id/complete"
 
 rota para marcar como incompleted
-"/task/:id/incomplete"
+"api/task/:id/incomplete"
 
 rota para deletar task
-"/delete/:id"
+"api/delete/:id"
 
 # Modo desenvolvimento
 
