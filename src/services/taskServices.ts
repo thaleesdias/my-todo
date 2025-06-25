@@ -44,3 +44,9 @@ export const setTaskAsIncompleted = async (id: number): Promise<void> => {
 
   return;
 };
+
+//deleta a task
+export const deleteTask = async (id: number): Promise<void> => {
+  const result = await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
+  return;
+};

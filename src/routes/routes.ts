@@ -5,6 +5,7 @@ import {
   create,
   getAllTasks,
   updateTaskToIncompleted,
+  deleteTask,
   updateTaskToCompleted,
 } from "../controller/taskController";
 
@@ -24,5 +25,7 @@ router.patch("/task/:id/complete", updateTaskToCompleted);
 
 //rota que marca como incompleted
 router.patch("/task/:id/incomplete", updateTaskToIncompleted);
+
+router.delete("/delete/:id", deleteTask);
 
 export default router;

@@ -60,3 +60,14 @@ export const updateTaskToIncompleted = async (req: Request, res: Response) => {
     res.status(500).json({ msg: "erro para dar update na task" });
   }
 };
+
+export const deleteTask = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+
+    const result = await taskService.deleteTask(id);
+    res.status(200).json({ msg: "Task delete" });
+  } catch (error) {
+    res.status(500).json({ msg: "erro ao deletar task" });
+  }
+};
