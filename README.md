@@ -35,15 +35,15 @@ cp .env.example .env
 
 # Preenche o .env com as infos do seu banco
 
-DB_HOST=localhost
+PGHOST=localhost
 
-DB_PORT=5432
+PGPORT=5432
 
-DB_USER=seu_usuario
+PGUSER=seu_usuario
 
-DB_PASSWORD=sua_senha
+PGPASSWORD=sua_senha
 
-DB_NAME=seu_banco
+PGDATABASE=seu_banco
 
 ---
 
