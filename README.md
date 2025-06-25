@@ -36,9 +36,13 @@ cp .env.example .env
 # Preenche o .env com as infos do seu banco
 
 DB_HOST=localhost
+
 DB_PORT=5432
+
 DB_USER=seu_usuario
+
 DB_PASSWORD=sua_senha
+
 DB_NAME=seu_banco
 
 ---
