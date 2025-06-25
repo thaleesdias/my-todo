@@ -37,7 +37,7 @@ cp .env.example .env
 
 PGHOST=localhost
 
-PGPORT=5432
+PGPORT=porta_do_db
 
 PGUSER=seu_usuario
 
@@ -45,6 +45,7 @@ PGPASSWORD=sua_senha
 
 PGDATABASE=seu_banco
 
+PORT=porta_para_rodar_app
 ---
 
 # Rotas
