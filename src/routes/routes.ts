@@ -6,6 +6,7 @@ import {
   getAllTasks,
   updateTaskToIncompleted,
   deleteTask,
+  incompletedTasks,
   updateTaskToCompleted,
 } from "../controller/taskController";
 
@@ -19,6 +20,9 @@ router.post("/create", create);
 
 // rota para ver tasks concluidas
 router.get("/completed", completedTasks);
+
+//rota para ver tasks incompletas
+router.get("/incompleted", incompletedTasks);
 
 //rota para atualizar o completed
 router.patch("/task/:id/complete", updateTaskToCompleted);

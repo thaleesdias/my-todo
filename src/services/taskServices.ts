@@ -13,6 +13,13 @@ export const showCompleted = async (): Promise<Task[]> => {
   return result.rows;
 };
 
+export const showIncompleted = async (): Promise<Task[]> => {
+  const result = await pool.query(
+    "SELECT * FROM tasks WHERE completed = false"
+  );
+  return result.rows;
+};
+
 //cria a task
 export const createTask = async (
   title: string,
