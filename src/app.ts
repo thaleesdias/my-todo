@@ -1,5 +1,6 @@
 import express from "express";
-import router from "./routes/routes";
+import todoRouter from "./routes/todoRoutes";
+import authRouter from "./routes/authRoutes";
 
 import dotenv from "dotenv";
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api", router);
+app.use("/api", todoRouter);
+app.use("/auth", authRouter);
 
 export default app;
