@@ -8,7 +8,7 @@ import {
   deleteTask,
   incompletedTasks,
   updateTaskToCompleted,
-} from "../controller/taskController";
+} from "../controllers/taskController";
 
 const router = Router();
 
