@@ -20,4 +20,14 @@ export const loginRegister = async (req: Request, res: Response) => {
   }
 };
 
+export const showUsers = async (req: Request, res: Response) => {
+  try {
+    const result = await authService.showUsers();
+
+    res.status(200).json({ result });
+  } catch (error) {
+    res.status(500).json({ message: "não foi possivel listar usuarios" });
+  }
+};
+
 const authLogin = async (req: Request, res: Response) => {};
