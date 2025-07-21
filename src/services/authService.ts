@@ -13,4 +13,9 @@ export const registerUser = async (
   return result.rows[0];
 };
 
+export const showUsers = async () => {
+  const result = await pool.query("SELECT * FROM users");
+  return result.rows;
+};
+
 const userLogin = async (name: string, email: string, password: string) => {};
