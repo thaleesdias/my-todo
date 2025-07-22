@@ -11,6 +11,8 @@ API simples para criação, listagem e atualização de tarefas, com controle de
 - TypeScript
 - PostgreSQL
 - pg (biblioteca de conexão)
+- JWT
+- bcrypt
 - dotenv (para variáveis de ambiente)
 
 ---
@@ -35,6 +37,8 @@ cp .env.example .env
 
 # Preenche o .env com as infos do seu banco
 
+PORT=porta_para_rodar_app
+
 PGHOST=localhost
 
 PGPORT=porta_do_db
@@ -45,7 +49,7 @@ PGPASSWORD=sua_senha
 
 PGDATABASE=seu_banco
 
-## PORT=porta_para_rodar_app
+JWT_SECRET=secret
 
 # Rotas
 
@@ -69,6 +73,15 @@ rota para marcar como incompleted
 
 rota para deletar task
 "api/delete/:id"
+
+rota para criar usuario
+"auth/register"
+
+rota para logar como usuario
+"auth/login"
+
+rota para listar usuarios
+"auth/list-user"
 
 # Modo desenvolvimento
 
