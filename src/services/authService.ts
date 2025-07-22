@@ -18,4 +18,9 @@ export const showUsers = async () => {
   return result.rows;
 };
 
-const userLogin = async (name: string, email: string, password: string) => {};
+export const userLogin = async (email: string) => {
+  const result = await pool.query("SELECT * FROM users WHERE email = $1 ", [
+    email,
+  ]);
+  return result.rows || null;
+};

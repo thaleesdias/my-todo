@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import bcrypt from "bcrypt";
+
+import { hash } from "bcrypt";
 
 import * as authService from "../services/authService";
 
@@ -7,7 +8,7 @@ export const loginRegister = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
 
   try {
-    const passwordHash = await bcrypt.hash(password, 10);
+    const passwordHash = await hash(password, 10);
 
     await authService.registerUser(name, email, passwordHash);
 
@@ -29,5 +30,3 @@ export const showUsers = async (req: Request, res: Response) => {
     res.status(500).json({ message: "não foi possivel listar usuarios" });
   }
 };
-
-const authLogin = async (req: Request, res: Response) => {};
